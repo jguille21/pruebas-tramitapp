@@ -11,7 +11,7 @@ const module = angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessag
 .controller('View1Ctrl', function() {
   this.departureDate = new Date();
   this.arrivalDate = new Date();
-  this.handleVueDateSelected = (dateRange) => {
+  this.handleVueDatesChanged = (dateRange) => {
     this.departureDate = dateRange.start;
     this.arrivalDate = dateRange.end;
   }
@@ -286,6 +286,9 @@ const VueComponent = Vue.component('vue-rangedate-picker', {
     },
     arrivalDate: function(newValue) {
       this.dateRange.end = newValue;
+    },
+    dateRange: function(newValue) {
+      this.$emit('datesChanged', this.dateRange);
     }
   },
   computed: {

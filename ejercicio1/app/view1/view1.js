@@ -287,7 +287,7 @@ const VueComponent = Vue.component('vue-rangedate-picker', {
     arrivalDate: function(newValue) {
       this.dateRange.end = newValue;
     },
-    dateRange: function(newValue) {
+    dateRange: function() {
       this.$emit('datesChanged', this.dateRange);
     }
   },
